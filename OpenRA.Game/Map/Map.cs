@@ -684,7 +684,7 @@ namespace OpenRA
 				if (StagedMapFiles.ContainsKey(forbidden))
 					throw new InvalidOperationException($"StagedMapFiles contains forbidden `{forbidden}` key");
 
-			foreach (var (filename, data) in StagedMapFiles.Order())
+			foreach (var (filename, data) in StagedMapFiles.OrderBy(kv => kv.Key))
 			{
 				if (data == null)
 					throw new NullReferenceException($"Staged map file `{filename}` has null data");
